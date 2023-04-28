@@ -1,0 +1,29 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock%}
+</head>
+<body>
+    <nav>
+        <a href=""><img src="https://www.freetogame.com/assets/images/freetogame-logo.png" alt="logo"></a>
+        <a href="">Search</a>
+        <a href="">New & noteworthy</a>
+        <a href="">Our top 10</a>
+        <a href="">random game</a>
+    </nav>
+
+    {%block content%}
+
+    {%endblock%}
+
+    <footer>
+
+    </footer>
+</body>
+</html>

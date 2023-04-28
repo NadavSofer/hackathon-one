@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+
+
+{%block content%}
+<div class="contentbox">
+    {%for game in games_list%}
+    <div class="gamebox">
+        <img src="{{game.thumbnail}}" alt="">
+        <div class="textbox">
+            <p class="game_title">{{game.title}}</p>
+            <p class="game_description">{{game.description}}</p>
+            <h5 class="game_genre">{{game.genre}}</h5>
+        </div>
+    </div>
+    <br>
+    {%endfor%}
+</div>
+
+
+{%endblock%}
+{% block title %}<title>view all</title>{% endblock%}
+{% block css %}<link rel="stylesheet" href="{% static 'css/view_all.css' %}">{% endblock %}

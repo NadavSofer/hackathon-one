@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+
+{% block css %}<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
+{%block content%}
+    <h1>{{genre}}</h1>
+    <div class="contentbox">
+        {%for genre in genre_list%}
+            <p>{{genre}}</p>
+        {%endfor%}
+    </div>
+{%endblock%}
+{% block title %}<title>view all</title>{% endblock%}
