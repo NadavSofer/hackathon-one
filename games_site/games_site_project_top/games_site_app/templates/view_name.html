@@ -18,5 +18,10 @@
             </div>
             <br>
         {% endfor %}
+        <form action="/view_by_name/" method="post" style="color: black;">
+            
+            {{form.as_p}}
+            <input type="submit" value="post">
+        </form>
     </div>
 {% endblock %}

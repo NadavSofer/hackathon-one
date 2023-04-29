@@ -21,6 +21,7 @@ class Reviews(models.Model):
     game = models.ForeignKey(games_data, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     review_description = models.TextField()
+    rating = models.FloatField(default=0)
 
     def __str__(self) -> str:
         return f'{self.name}'

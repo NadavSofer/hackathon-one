@@ -1,7 +1,6 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    color: aliceblue;
 }
 
 body{
@@ -22,4 +21,8 @@ nav a{
     text-decoration: none;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
+}
+
+label{
+    color: aliceblue;
 }

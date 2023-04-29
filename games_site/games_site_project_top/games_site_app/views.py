@@ -1,6 +1,9 @@
 import random
 from django.shortcuts import render
+from django.shortcuts import redirect
 from.models import games_data
+from.forms import ReviewForm
+
 
 # Create your views here.
 def view_all(request):
@@ -26,8 +29,20 @@ def recent_games(request):
 
 def view_by_name(request, title:str):
     games_list = games_data.objects.filter(title=title)
-    context = {'games_list': games_list, 'title': title}
-    return render(request, "view_name.html", context)
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.game = games_list
+            review.save()
+            return redirect(request.path(f'by_name/{title}'))
+    else:
+        form = ReviewForm()
+
+    if request.method == 'GET':
+        context = {'games_list': games_list, 'title': title, 'form': form}
+        return render(request, "view_name.html", context)
 
 
 def random_game(request):
