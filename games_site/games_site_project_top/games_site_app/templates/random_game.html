@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{% block title %}<title>Browse</title>{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
+{% block content %}
+    <div class="contentbox">
+        <div class="gamebox">
+            <p class="game_title">{{ game.title }}</p>
+            <img src="{{ game.thumbnail }}" alt="">
+            <div class="textbox">
+                
+                <p class="game_description">{{ game.description }}</p>
+                <h5  class="game_genre">{{ game.genre }}</h5>
+            </div>
+        </div>
+        <br>
+    </div>
+{% endblock %}

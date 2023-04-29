@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
-{%load static%}
 
 
 
-{% block css %}<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
 {% block content %}
     <h1>Recent Games</h1>
-    {% for game in games_list %}
+    {% for game in games %}
         <a href="{% url 'by_name' game.title %}">
             <div class="gamebox">
                 <img src="{{ game.thumbnail }}" alt="">
@@ -20,4 +18,4 @@
         <br>
     {% endfor %}
 {% endblock %}
-{% block title %}<title>view all</title>{% endblock%}
+

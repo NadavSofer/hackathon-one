@@ -8,16 +8,16 @@
     {% block title %}{% endblock%}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block css %}{% endblock%}
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 </head>
 <body>
     <nav>
         <a href=""><img src="https://www.freetogame.com/assets/images/freetogame-logo.png" alt="logo"></a>
-        <a href="">Search</a>
-        <a href="">New & noteworthy</a>
+        <a href="{%url 'search'%}">Search</a>
+        <a href="{%url 'recent_games'%}">New & noteworthy</a>
         <a href="">Our top 10</a>
-        <a href="">random game</a>
+        <a href="{% url 'random_game' %}">random game</a>
     </nav>
-
     {%block content%}
 
     {%endblock%}

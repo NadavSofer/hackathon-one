@@ -15,3 +15,12 @@ class games_data(models.Model):
 
     def __str__(self) -> str:
         return f'{self.title}'
+
+
+class Reviews(models.Model):
+    game = models.ForeignKey(games_data, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    review_description = models.TextField()
+
+    def __str__(self) -> str:
+        return f'{self.name}'

@@ -2,14 +2,17 @@
 {%load static%}
 
 
-
+{% block title %}<title>Browse</title>{% endblock %}
 {% block css %}<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
-{%block content%}
-    <h1>{{genre}}</h1>
+{% block content %}
+    <h1>{{ genre }}</h1>
     <div class="contentbox">
-        {%for genre in genre_list%}
-            <p>{{genre}}</p>
-        {%endfor%}
+        {% for g in genre_list %}
+            {% if forloop.counter != 2 %}
+                <a href="{% url 'by_genre' g %}">{{ g }}</a>
+            {% endif %}
+        {% endfor %}
     </div>
-{%endblock%}
-{% block title %}<title>view all</title>{% endblock%}
+    <a href="{%url 'view_all'%}">Browse all games</a>
+{% endblock %}
+
