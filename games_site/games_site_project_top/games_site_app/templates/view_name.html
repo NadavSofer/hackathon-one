@@ -6,22 +6,25 @@
 {% block css %}<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
 {% block content %}
     <div class="contentbox">
-        {% for game in games_list %}
+
             <div class="gamebox">
-                <p class="game_title">{{ game.title }}</p>
-                <img src="{{ game.thumbnail }}" alt="">
+                <p class="game_title">{{ games_list.title }}</p>
+                <img src="{{ games_list.thumbnail }}" alt="">
                 <div class="textbox">
                     
-                    <p class="game_description">{{ game.description }}</p>
-                    <h5  class="game_genre">{{ game.genre }}</h5>
+                    <p class="game_description">{{ games_list.description }}</p>
+                    <h5  class="game_genre">{{ games_list.genre }}</h5>
                 </div>
             </div>
             <br>
-        {% endfor %}
-        <form action="/view_by_name/" method="post" style="color: black;">
-            
+
+        <form method="post" style="color: black;">
+            {%csrf_token%}
             {{form.as_p}}
             <input type="submit" value="post">
         </form>
+        {%for item in review_list%}
+            {{item}}
+        {%endfor%}
     </div>
 {% endblock %}

@@ -14,7 +14,7 @@ class ReviewForm(forms.ModelForm):
     )
     text = forms.CharField(
         label='Your Review',
-        widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'})
+        widget=forms.Textarea(attrs={'class': 'form-control'})
     )
     rating = forms.IntegerField(
         label='Your Rating (out of 5)',
