@@ -38,7 +38,6 @@ def view_name(request, id:int):
             review.game_id = id
             review.save()
             response = redirect(f'/by_name/{id}')
-
             return response
     else:
         form = ReviewForm()
