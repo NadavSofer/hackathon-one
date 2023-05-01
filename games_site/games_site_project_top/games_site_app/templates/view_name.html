@@ -3,28 +3,49 @@
 
 
 {% block title %}<title>Browse</title>{% endblock %}
-{% block css %}<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
 {% block content %}
-    <div class="contentbox">
+<div class="contentbox">
 
-            <div class="gamebox">
-                <p class="game_title">{{ games_list.title }}</p>
-                <img src="{{ games_list.thumbnail }}" alt="">
-                <div class="textbox">
-                    
-                    <p class="game_description">{{ games_list.description }}</p>
-                    <h5  class="game_genre">{{ games_list.genre }}</h5>
-                </div>
-            </div>
-            <br>
+    <div class="gamebox">
+        <p class="game_title">{{ games_list.title }}</p>
+        <img src="{{ games_list.thumbnail }}" alt="">
+        <div class="textbox">
 
-        <form method="post" style="color: black;">
-            {%csrf_token%}
-            {{form.as_p}}
-            <input type="submit" value="post">
-        </form>
-        {%for item in review_list%}
-            {{item}}
-        {%endfor%}
+            <p class="game_description">{{ games_list.description }}</p>
+            <h5 class="game_genre">{{ games_list.genre }}</h5>
+        </div>
     </div>
+    <br>
+<div class="form">
+    <form method="post" style="color: black; padding: 2rem;">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="post">
+    </form>
+</div>
+
+    {%for item in review_list%}
+    {{item}}
+    {%endfor%}
+</div>
+<div class="card" style="width: 40rem; background-color: #141444; border: black so 2px; border-radius: 10px;">
+    <h5 class="card-title">Card title</h5>
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+    </div>
+</div>
 {% endblock %}

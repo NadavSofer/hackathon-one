@@ -9,14 +9,20 @@ body{
     width: 80%;
     margin: 0 auto;
 }
-
-nav{
+nav {
     display: flex;
     align-items: center;
     margin: 1rem 0;
 }
 
-nav a{
+
+
+body nav div.links{
+    display: flex;
+    align-items: center;
+}
+
+nav .links li {
     color: aliceblue;
     text-decoration: none;
     padding: 0.5rem 1rem;
