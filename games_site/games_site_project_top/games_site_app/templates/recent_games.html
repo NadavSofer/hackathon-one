@@ -5,7 +5,7 @@
 {% block content %}
     <h1>Recent Games</h1>
     {% for game in games %}
-        <a href="{% url 'by_name' game.title %}">
+        <a href="{% url 'by_name' game.id %}">
             <div class="gamebox">
                 <img src="{{ game.thumbnail }}" alt="">
                 <div class="textbox">

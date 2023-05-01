@@ -6,13 +6,13 @@ from .models import Reviews
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Reviews
-        fields = ['name', 'text', 'rating']
+        fields = ['name', 'review_description', 'rating']
 
     name = forms.CharField(
         max_length=50,
         label='Review title'
     )
-    text = forms.CharField(
+    review_description = forms.CharField(
         label='Your Review',
         widget=forms.Textarea(attrs={'class': 'form-control'})
     )

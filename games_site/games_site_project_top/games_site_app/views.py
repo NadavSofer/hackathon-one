@@ -50,6 +50,6 @@ def view_name(request, id:int):
 def random_game(request):
     games = games_data.objects.all()
     random_game = random.choice(games)
-    context = {'game': random_game}
-    return render(request, 'random_game.html', context)
+    response = redirect(f'/by_name/{random_game.id}')
+    return response
 
