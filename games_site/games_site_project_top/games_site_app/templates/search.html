@@ -3,16 +3,23 @@
 
 
 {% block title %}<title>Browse</title>{% endblock %}
-{% block css %}<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
 {% block content %}
-    <h1>{{ genre }}</h1>
-    <div class="contentbox">
+<div class="contanier" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; ">
+    <h1 style="width: fit-content;">Categories</h1>
+    <p>Browse our wide selection of categories!</p>
+    <div class="contentbox" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; width: 50%; margin: 0 auto;">
         {% for g in genre_list %}
             {% if forloop.counter != 2 %}
-                <a href="{% url 'by_genre' g %}">{{ g }}</a>
+                <div class="btn btn-outline-primary bg-dark text-white">
+                    <div class="card-body" style="width: fit-content;">
+                        <a href="{% url 'by_genre' g %}"  style="text-decoration: none;">{{ g }}</a>
+                    </div>
+                </div>
+                
             {% endif %}
         {% endfor %}
     </div>
-    <a href="{%url 'view_all'%}">Browse all games</a>
-{% endblock %}
+    <a href="{%url 'view_all'%}" style="text-align: center; text-decoration: none; color: aliceblue;" >Browse all games</a>
+</div>
 
+{% endblock %}

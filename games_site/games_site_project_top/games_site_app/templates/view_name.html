@@ -12,7 +12,7 @@
             <h1 class="game_title">{{ games_list.title }}</h1>
             <img src="{{ games_list.thumbnail }}" alt="" style="height: 20rem;  margin: 1rem;">
         </div>
-        <div class="chart">
+        <div class="chart" style="margin-top: 5rem;">
             <table style="background-color: rgba(0, 0, 0, 0.5);">
                 <thead>
                     <tr>
@@ -46,18 +46,27 @@
     </div>
     <br>
 <div class="form">
-    <form method="post" style="color: black; padding: 2rem; background-color: rgba(0, 0, 0, 0.5)">
+    <form method="post" style="color: black; padding: 2rem; background-color: rgba(0, 0, 0, 0.5); width: 80%; margin: 0 auto;">
         {%csrf_token%}
         {{form.as_p}}
-        <input type="submit" value="post" style="background-color: black; width: 8rem; padding: 0.5rem;">
+        {%if user.is_authenticated%}
+            <input type="submit" value="post" style="background-color: #00056d; width: 8rem; padding: 0.5rem;">
+        {%else%}
+            <a href="{%url 'login'%}"><input type="button" value="login to post" style="background-color: #00056d; width: 8rem; padding: 0.5rem;"></a>
+        {%endif%}
     </form>
 </div>
-
+<div>
     {%for item in review_list%}
-        {{item.name}}
-        {{item.user}}
-        {{item.review_description}}
-        <br>
+    <br>
+        <div class="reviewbox" style="display: flex; flex-direction: row; justify-content: center; width: 80%; margin: 0 auto; padding: 2rem; background-color: rgba(0, 0, 0, 0.5);">
+            <p style="padding: 0 5rem; align-self: center;">{{item.user}}-></p>
+            <div class="title" style="display: flex; flex-direction: column; flex-grow: 2;">
+                <p>{{item.name}}</p>
+                <p>{{item.review_description}}</p>
+            </div>
+            
+        </div>
     {%endfor%}
 </div>
 

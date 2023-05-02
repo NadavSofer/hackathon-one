@@ -6,13 +6,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cece1c3b6f.js" crossorigin="anonymous"></script>
+    <style>
+
+    * {
+        color: aliceblue;
+    }
+
+    body {
+        background-color: #141444;
+    }
+
+    #id_username, #id_password1, #id_password2 {
+        background-color: #2f3254;
+        border: none;
+        color: aliceblue;
+    }
+
+    button{
+        background-color: #00056d;
+        border: none;
+        color: aliceblue;
+    }
+    </style>
 <body>
-    <form method="post"> 
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit"> signup </button>
-    </form>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand ml-5" href=""><img src="https://www.freetogame.com/assets/images/freetogame-logo.png"
+                    alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{%url 'search'%}">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{%url 'recent_games'%}">New & Noteworthy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'random_game' %}" tabindex="-1"
+                            aria-disabled="true">Random Game</a>
+
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    {%if user.is_authenticated%}
+                        <h3><a href="{% url 'logout' %}" class="badge bg-outline-primary" id="Logout">Logout</a></h3>
+                        <h3><span class="badge bg-dark">{{user}}</span></h3>
+                        <h3><span class="badge bg-dark"><i class="fa-regular fa-user"></i></span></h3>
+
+                    {%else%}
+                        <a class="btn btn-outline-primary" href="{%url 'login'%}" style="margin:0 1rem;">Login</a>
+                        <a class="btn btn-outline-primary" href="{%url 'signup'%}">signup</a>
+                    {%endif%}
+                </form>
+            </div>
+        </div>
+    </nav>
+    <br><br><br><br><br>
+    <div class="formbox" style=" padding: 5rem 2.5rem; margin: auto; width: 30%; padding: 10px; text-align: center; background-color: rgba(0, 0, 0, 0.5)">
+        <form method="post" > 
+            {%csrf_token%}
+            <p>username: {{form.username}}</p>
+            <p>password: {{form.password1}}</p>
+            <p>password confirmation: {{form.password2}}</p>
+            <br>
+            <button type="submit" style="margin-bottom: 1rem;"> signup </button>
+    
+        </form>
+    </div>
+
+    <br><br><br><br><br>
+    <footer>
+        <div class="bg-dark py-4 fixed-bottom">
+            <div class="container text-center">
+                <p class="text-light mb-0 py-2 ">© 2023 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
