@@ -36,6 +36,7 @@ def view_name(request, id:int):
             review = form.save(commit=False)
             review.game = games_list
             review.game_id = id
+            review.user = request.user
             review.save()
             response = redirect(f'/by_name/{id}')
             return response

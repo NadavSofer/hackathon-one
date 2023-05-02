@@ -3,8 +3,6 @@
 
 
 {% block title %}<title>Browse</title>{% endblock %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/by_gnere.css' %}">{% endblock %}
 {% block content %}
 <div class="contentbox">
 
@@ -27,7 +25,7 @@
 </div>
 
     {%for item in review_list%}
-    {{item}}
+        {{item.user}}
     {%endfor%}
 </div>
 <div class="card" style="width: 40rem; background-color: #141444; border: black so 2px; border-radius: 10px;">

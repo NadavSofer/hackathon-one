@@ -4,8 +4,9 @@
 
 {% block content %}
     <h1>Recent Games</h1>
-    {% for game in games %}
-        <a href="{% url 'by_name' game.id %}">
+    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+        {% for game in games %}
+        <a href="{% url 'by_name' game.id %}" style=" width: 25rem; margin: 1rem; ">
             <div class="gamebox">
                 <img src="{{ game.thumbnail }}" alt="">
                 <div class="textbox">
@@ -15,7 +16,8 @@
                 </div>
             </div>
         </a>
-        <br>
     {% endfor %}
+    </div>
+
 {% endblock %}
 
