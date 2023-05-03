@@ -18,11 +18,12 @@
     }
 
     body {
-        background-color: #141444;
+        background-color: #0a0a31;
     }
 
     #id_username, #id_password1, #id_password2 {
         background-color: #2f3254;
+
         border: none;
         color: aliceblue;
     }
@@ -72,12 +73,12 @@
         </div>
     </nav>
     <br><br><br><br><br>
-    <div class="formbox" style=" padding: 5rem 2.5rem; margin: auto; width: 30%; padding: 10px; text-align: center; background-color: rgba(0, 0, 0, 0.5)">
+    <div class="formbox" style=" border-radius: 10px; padding: 5rem 2.5rem; margin: auto; width: 30%; padding: 10px; text-align: center; background-color: rgba(0, 0, 0, 0.5)">
         <form method="post" > 
             {%csrf_token%}
-            <p>username: {{form.username}}</p>
-            <p>password: {{form.password1}}</p>
-            <p>password confirmation: {{form.password2}}</p>
+            <p>username: <br> {{form.username}}</p>
+            <p>password: <br> {{form.password1}}</p>
+            <p>password confirmation: <br> {{form.password2}}</p>
             <br>
             <button type="submit" style="margin-bottom: 1rem;"> signup </button>
     

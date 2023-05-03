@@ -4,7 +4,7 @@ from games_site_app.views import view_all, view_by_genre, search, recent_games,v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('view_all/', view_all, name= 'view_all'),
+    path('', view_all, name= 'view_all'),
     path('by_genre/<str:genre>', view_by_genre, name='by_genre'),
     path('search/',search, name='search'),
     path('recent_games/',recent_games, name='recent_games'),

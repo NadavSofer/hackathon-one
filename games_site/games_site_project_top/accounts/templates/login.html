@@ -18,7 +18,7 @@
     }
 
     body {
-        background-color: #141444;
+        background-color: #0a0a31;
     }
 
     #id_username, #id_password {
@@ -72,7 +72,7 @@
         </div>
     </nav>
     <br><br><br><br><br>
-    <div class="formbox" style=" padding: 5rem 2.5rem; margin: auto; width: 20%; padding: 10px; text-align: center; background-color: rgba(0, 0, 0, 0.5)">
+    <div class="formbox" style="border-radius: 10px; padding: 5rem 2.5rem; margin: auto; width: 20%; padding: 10px; text-align: center; background-color: rgba(0, 0, 0, 0.5)">
         <form method="post" > 
             {%csrf_token%}
             {{form.as_p}}
